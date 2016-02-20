@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD50BBA81C792A4100D71BE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD50BBA71C792A4100D71BE9 /* AppDelegate.swift */; };
+		BD50BBAA1C792A4100D71BE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD50BBA91C792A4100D71BE9 /* ViewController.swift */; };
+		BD50BBAD1C792A4100D71BE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD50BBAB1C792A4100D71BE9 /* Main.storyboard */; };
+		BD50BBAF1C792A4100D71BE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD50BBAE1C792A4100D71BE9 /* Assets.xcassets */; };
+		BD50BBB21C792A4100D71BE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD50BBB01C792A4100D71BE9 /* LaunchScreen.storyboard */; };
+		BD50BBC01C792A6000D71BE9 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD50BBBF1C792A6000D71BE9 /* KeyboardViewController.swift */; };
+		BD50BBC41C792A6000D71BE9 /* TerminalKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BD50BBBD1C792A6000D71BE9 /* TerminalKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BD50BBCA1C792A8F00D71BE9 /* TerminalMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD50BBC91C792A8F00D71BE9 /* TerminalMain.storyboard */; };
+		BD50BBCD1C792B3700D71BE9 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD50BBCC1C792B3700D71BE9 /* TerminalViewController.swift */; };
+		BD50BBD31C792D2D00D71BE9 /* CommandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD50BBD11C792D2D00D71BE9 /* CommandCell.swift */; };
+		BD50BBD41C792D2D00D71BE9 /* CommandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD50BBD21C792D2D00D71BE9 /* CommandCell.xib */; };
+		BD50BBD61C792DCA00D71BE9 /* KeyboardAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD50BBD51C792DCA00D71BE9 /* KeyboardAssets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD50BBC21C792A6000D71BE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD50BB9C1C792A4100D71BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD50BBBC1C792A6000D71BE9;
+			remoteInfo = TerminalKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BD50BBC81C792A6000D71BE9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BD50BBC41C792A6000D71BE9 /* TerminalKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BD50BBA41C792A4100D71BE9 /* SMSTerminalKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMSTerminalKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD50BBA71C792A4100D71BE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD50BBA91C792A4100D71BE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD50BBAC1C792A4100D71BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD50BBAE1C792A4100D71BE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD50BBB11C792A4100D71BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD50BBB31C792A4100D71BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD50BBBD1C792A6000D71BE9 /* TerminalKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TerminalKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD50BBBF1C792A6000D71BE9 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		BD50BBC11C792A6000D71BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD50BBC91C792A8F00D71BE9 /* TerminalMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TerminalMain.storyboard; sourceTree = "<group>"; };
+		BD50BBCC1C792B3700D71BE9 /* TerminalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
+		BD50BBD11C792D2D00D71BE9 /* CommandCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandCell.swift; path = Cells/CommandCell.swift; sourceTree = "<group>"; };
+		BD50BBD21C792D2D00D71BE9 /* CommandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommandCell.xib; path = Cells/CommandCell.xib; sourceTree = "<group>"; };
+		BD50BBD51C792DCA00D71BE9 /* KeyboardAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = KeyboardAssets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD50BBA11C792A4100D71BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD50BBBA1C792A6000D71BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD50BB9B1C792A4100D71BE9 = {
+			isa = PBXGroup;
+			children = (
+				BD50BBA61C792A4100D71BE9 /* SMSTerminalKeyboard */,
+				BD50BBBE1C792A6000D71BE9 /* TerminalKeyboard */,
+				BD50BBA51C792A4100D71BE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD50BBA51C792A4100D71BE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD50BBA41C792A4100D71BE9 /* SMSTerminalKeyboard.app */,
+				BD50BBBD1C792A6000D71BE9 /* TerminalKeyboard.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD50BBA61C792A4100D71BE9 /* SMSTerminalKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BD50BBA71C792A4100D71BE9 /* AppDelegate.swift */,
+				BD50BBA91C792A4100D71BE9 /* ViewController.swift */,
+				BD50BBAB1C792A4100D71BE9 /* Main.storyboard */,
+				BD50BBAE1C792A4100D71BE9 /* Assets.xcassets */,
+				BD50BBB01C792A4100D71BE9 /* LaunchScreen.storyboard */,
+				BD50BBB31C792A4100D71BE9 /* Info.plist */,
+			);
+			path = SMSTerminalKeyboard;
+			sourceTree = "<group>";
+		};
+		BD50BBBE1C792A6000D71BE9 /* TerminalKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BD50BBD11C792D2D00D71BE9 /* CommandCell.swift */,
+				BD50BBD21C792D2D00D71BE9 /* CommandCell.xib */,
+				BD50BBCB1C792B0A00D71BE9 /* TerminalView */,
+				BD50BBC91C792A8F00D71BE9 /* TerminalMain.storyboard */,
+				BD50BBBF1C792A6000D71BE9 /* KeyboardViewController.swift */,
+				BD50BBC11C792A6000D71BE9 /* Info.plist */,
+				BD50BBD51C792DCA00D71BE9 /* KeyboardAssets.xcassets */,
+			);
+			path = TerminalKeyboard;
+			sourceTree = "<group>";
+		};
+		BD50BBCB1C792B0A00D71BE9 /* TerminalView */ = {
+			isa = PBXGroup;
+			children = (
+				BD50BBCC1C792B3700D71BE9 /* TerminalViewController.swift */,
+			);
+			name = TerminalView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD50BBA31C792A4100D71BE9 /* SMSTerminalKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD50BBB61C792A4100D71BE9 /* Build configuration list for PBXNativeTarget "SMSTerminalKeyboard" */;
+			buildPhases = (
+				BD50BBA01C792A4100D71BE9 /* Sources */,
+				BD50BBA11C792A4100D71BE9 /* Frameworks */,
+				BD50BBA21C792A4100D71BE9 /* Resources */,
+				BD50BBC81C792A6000D71BE9 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD50BBC31C792A6000D71BE9 /* PBXTargetDependency */,
+			);
+			name = SMSTerminalKeyboard;
+			productName = SMSTerminalKeyboard;
+			productReference = BD50BBA41C792A4100D71BE9 /* SMSTerminalKeyboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD50BBBC1C792A6000D71BE9 /* TerminalKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD50BBC51C792A6000D71BE9 /* Build configuration list for PBXNativeTarget "TerminalKeyboard" */;
+			buildPhases = (
+				BD50BBB91C792A6000D71BE9 /* Sources */,
+				BD50BBBA1C792A6000D71BE9 /* Frameworks */,
+				BD50BBBB1C792A6000D71BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TerminalKeyboard;
+			productName = TerminalKeyboard;
+			productReference = BD50BBBD1C792A6000D71BE9 /* TerminalKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD50BB9C1C792A4100D71BE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = martykausas;
+				TargetAttributes = {
+					BD50BBA31C792A4100D71BE9 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					BD50BBBC1C792A6000D71BE9 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = BD50BB9F1C792A4100D71BE9 /* Build configuration list for PBXProject "SMSTerminalKeyboard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD50BB9B1C792A4100D71BE9;
+			productRefGroup = BD50BBA51C792A4100D71BE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD50BBA31C792A4100D71BE9 /* SMSTerminalKeyboard */,
+				BD50BBBC1C792A6000D71BE9 /* TerminalKeyboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD50BBA21C792A4100D71BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD50BBB21C792A4100D71BE9 /* LaunchScreen.storyboard in Resources */,
+				BD50BBAF1C792A4100D71BE9 /* Assets.xcassets in Resources */,
+				BD50BBAD1C792A4100D71BE9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD50BBBB1C792A6000D71BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD50BBCA1C792A8F00D71BE9 /* TerminalMain.storyboard in Resources */,
+				BD50BBD61C792DCA00D71BE9 /* KeyboardAssets.xcassets in Resources */,
+				BD50BBD41C792D2D00D71BE9 /* CommandCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD50BBA01C792A4100D71BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD50BBAA1C792A4100D71BE9 /* ViewController.swift in Sources */,
+				BD50BBA81C792A4100D71BE9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD50BBB91C792A6000D71BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD50BBCD1C792B3700D71BE9 /* TerminalViewController.swift in Sources */,
+				BD50BBC01C792A6000D71BE9 /* KeyboardViewController.swift in Sources */,
+				BD50BBD31C792D2D00D71BE9 /* CommandCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD50BBC31C792A6000D71BE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD50BBBC1C792A6000D71BE9 /* TerminalKeyboard */;
+			targetProxy = BD50BBC21C792A6000D71BE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BD50BBAB1C792A4100D71BE9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD50BBAC1C792A4100D71BE9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BD50BBB01C792A4100D71BE9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD50BBB11C792A4100D71BE9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD50BBB41C792A4100D71BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD50BBB51C792A4100D71BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD50BBB71C792A4100D71BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = SMSTerminalKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martykausas.SMSTerminalKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BD50BBB81C792A4100D71BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = SMSTerminalKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martykausas.SMSTerminalKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BD50BBC61C792A6000D71BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TerminalKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martykausas.SMSTerminalKeyboard.TerminalKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BD50BBC71C792A6000D71BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TerminalKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.martykausas.SMSTerminalKeyboard.TerminalKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD50BB9F1C792A4100D71BE9 /* Build configuration list for PBXProject "SMSTerminalKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD50BBB41C792A4100D71BE9 /* Debug */,
+				BD50BBB51C792A4100D71BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD50BBB61C792A4100D71BE9 /* Build configuration list for PBXNativeTarget "SMSTerminalKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD50BBB71C792A4100D71BE9 /* Debug */,
+				BD50BBB81C792A4100D71BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BD50BBC51C792A6000D71BE9 /* Build configuration list for PBXNativeTarget "TerminalKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD50BBC61C792A6000D71BE9 /* Debug */,
+				BD50BBC71C792A6000D71BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD50BB9C1C792A4100D71BE9 /* Project object */;
+}

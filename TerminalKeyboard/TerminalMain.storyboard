@@ -166,6 +166,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Z7T-Cr-Ykj" id="8Od-tC-0gF"/>
+                        <outlet property="nextKeyboardButton" destination="PaB-rx-pKi" id="TCL-fN-FwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vC-NS-ilY" userLabel="First Responder" sceneMemberID="firstResponder"/>

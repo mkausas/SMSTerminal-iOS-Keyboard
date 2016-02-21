@@ -16,15 +16,37 @@ class TerminalViewController: UIInputViewController {
     
     @IBOutlet weak var nextKeyboardButton: UIButton!
     
+    @IBOutlet weak var recentCommandButton: UIButton!
+    
+    
     var commands: [String: [String]] =
     [
         "ls": ["-l", "-a"],
         "pwd": [],
-        "cd": [".."]
+        "cd": [".."],
+        "git": ["config", "init", "clone", "add", "status", "diff", "commit", "reset", "rm", "mv", "branch",  "checkout" ,"merge" ,"mergetool" ,"log" ,"stash" ,"tag", "fetch", "pull", "push", "remote", "submodule", "show", "log", "diff", "shortlog", "describe", "apply", "cherry-pick", "diff", "rebase", "revert", "bisect", "blame", "grep", "am", "apply", "format-patch", "send-email", "request-pull", "svn", "fast-import", "clean", "gc", "fsck", "reflog", "filter-branch", "instaweb", "archive", "bundle", "daemon", "update-server-info", "cat-file", "commit-tree", "count-objects", "diff-index", "for-each-ref", "hash-object", "ls-files", "merge-base", "read-tree", "rev-list", "rev-parse", "show-ref", "symbolic-ref", "update-index", "update-ref", "verify-pack", "write-tree"],
+        "mkdir": [],
+        "rmdir": ["-r"],
+        "cp": [],
+        "mv": [],
+        "rm": ["-r"],
+        "|": [],
+        "<": [],
+        ">": [],
+        "&": [],
+        "man": [],
+        "cat": [],
+        "make": []
     ]
     
+    
+    var typeState: Int = 0
+    let TYPE_STATE_COMMAND = 0
+    let TYPE_STATE_FLAG = 1
+    let TYPE_STATE_FREEFORM = 2
+    
     var commandKeys = [String]()
-//    var currentCommands = [String]
+    var argKeys = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +58,6 @@ class TerminalViewController: UIInputViewController {
         
         nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
         
-        print("did happen")
         
         // grab key list
         for key in commands.keys {
@@ -44,38 +65,131 @@ class TerminalViewController: UIInputViewController {
             print("Key = \(key)")
         }
         
-        print(commandKeys)
+        setState(TYPE_STATE_COMMAND)
     }
     
-    
-    
-}
-
-extension TerminalViewController: UICollectionViewDataSource {
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return commandKeys.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(commandCellIdentifier, forIndexPath: indexPath) as! CommandCell
-        
-        cell.commandButton.setTitle(commandKeys[indexPath.row], forState: .Normal)
-        cell.commandButton.addTarget(self, action: "pressedKey:", forControlEvents: .TouchDown)
-        
-        return cell
-    }
-    
+    var lastAddedCommand = ""
     @IBAction func pressedKey(sender: AnyObject) {
-//        print("pressed button!")
         let button = sender as! UIButton
         let title = button.titleLabel?.text
         print("pressed \(title!)")
         
+        // add to textfield
+        lastAddedCommand = "\(title!) "
         self.textDocumentProxy.insertText("\(title!) ")
+        
+        // change commandkeys
+        if typeState == TYPE_STATE_COMMAND {
+            argKeys = commands[title!]!
+            if argKeys.count > 0 {
+                setState(TYPE_STATE_FLAG)
+            }
+        }
     }
     
+    @IBAction func deleteAction(sender: AnyObject) {
+        for var i = 0; i < stringLength(lastAddedCommand); i++ {
+            self.textDocumentProxy.deleteBackward()
+        }
+    }
+    
+    var sentCommands = [String]()
+    var currentHistoryCommand = 0
+    override func textWillChange(textInput: UITextInput?) {
+        let proxy = textDocumentProxy
+        let beforeText = proxy.documentContextBeforeInput
+        let afterText = proxy.documentContextAfterInput
+        print("before text = \(beforeText) after text = \(afterText)")
+        
+        if afterText == nil {
+            if let beforeText = beforeText {
+                sentCommands.append(beforeText)
+                print("sent commands \(sentCommands)")
+                recentCommandButton.setTitle(beforeText, forState: .Normal)
+                currentHistoryCommand += 1
+                
+                setState(TYPE_STATE_COMMAND)
+            }
+        }
+    }
+    
+    @IBAction func setPreviousCommandAction(sender: AnyObject) {
+        print("prev")
+        if currentHistoryCommand > 0 {
+            currentHistoryCommand -= 1
+            recentCommandButton.setTitle(sentCommands[currentHistoryCommand], forState: .Normal)
+        }
+    }
+    
+    @IBAction func setNextCommandAction(sender: AnyObject) {
+        print("next")
+        if currentHistoryCommand < sentCommands.count - 1 {
+            currentHistoryCommand += 1
+            recentCommandButton.setTitle(sentCommands[currentHistoryCommand], forState: .Normal)
+        }
+    }
+    
+    
+    @IBAction func sendHistoryCommandAction(sender: AnyObject) {
+        self.textDocumentProxy.insertText((recentCommandButton.titleLabel?.text)!)
+    }
+
+    // helper functions
+    func stringLength(string: String) -> Int {
+        return string.characters.count
+    }
+    
+    func setState(state: Int) {
+        typeState = state
+        collectionView.reloadData()
+    }
 }
+
+
+
+extension TerminalViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var keys: [String]
+        switch typeState {
+        case TYPE_STATE_COMMAND:
+            keys = commandKeys
+            break
+        case TYPE_STATE_FLAG:
+            keys = argKeys
+            break
+        default:
+            keys = commandKeys
+            break
+        }
+        
+        return keys.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        var keys: [String]
+        switch typeState {
+        case TYPE_STATE_COMMAND:
+            keys = commandKeys
+            break
+        case TYPE_STATE_FLAG:
+            keys = argKeys
+            break
+        default:
+            keys = commandKeys
+            break
+        }
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(commandCellIdentifier, forIndexPath: indexPath) as! CommandCell
+        
+        cell.commandButton.setTitle(keys[indexPath.row], forState: .Normal)
+        cell.commandButton.addTarget(self, action: "pressedKey:", forControlEvents: .TouchDown)
+        
+        return cell
+    }
+}
+
 
 extension TerminalViewController: UICollectionViewDelegate {
     

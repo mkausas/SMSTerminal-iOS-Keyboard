@@ -35,6 +35,9 @@
                                                         <state key="normal" image="Left-Arrow">
                                                             <color key="titleColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="setPreviousCommandAction:" destination="KeC-S8-bd6" eventType="touchUpInside" id="deI-XM-UqQ"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bS-eK-YF2">
                                                         <rect key="frame" x="70" y="0.0" width="430" height="35"/>
@@ -42,6 +45,9 @@
                                                         <state key="normal" title="cd home">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="sendHistoryCommandAction:" destination="KeC-S8-bd6" eventType="touchUpInside" id="FgP-aq-enb"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1z-wY-V8M" userLabel="Right">
                                                         <rect key="frame" x="500" y="0.0" width="70" height="35"/>
@@ -56,6 +62,9 @@
                                                                 <exclude reference="CHo-Tt-umM"/>
                                                             </mask>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="setNextCommandAction:" destination="KeC-S8-bd6" eventType="touchUpInside" id="4Jy-uN-uYt"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -130,6 +139,9 @@
                                                                 <exclude reference="Lww-io-tDC"/>
                                                             </mask>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="deleteAction:" destination="KeC-S8-bd6" eventType="touchUpInside" id="0Ai-uJ-8dp"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -167,6 +179,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Z7T-Cr-Ykj" id="8Od-tC-0gF"/>
                         <outlet property="nextKeyboardButton" destination="PaB-rx-pKi" id="TCL-fN-FwG"/>
+                        <outlet property="recentCommandButton" destination="1bS-eK-YF2" id="T5s-LN-fFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vC-NS-ilY" userLabel="First Responder" sceneMemberID="firstResponder"/>

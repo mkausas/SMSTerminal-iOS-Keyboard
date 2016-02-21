@@ -11,6 +11,7 @@ import UIKit
 class TerminalViewController: UIInputViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var insets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +40,25 @@ extension TerminalViewController: UICollectionViewDataSource {
 
 extension TerminalViewController: UICollectionViewDelegate {
     
+}
+
+
+extension TerminalViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let width = 100
+        let height = 42
+        return CGSize(width: width, height: height)
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return insets
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 3
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 3
+    }
 }
 

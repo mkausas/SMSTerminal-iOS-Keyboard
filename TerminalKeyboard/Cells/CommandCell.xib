@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="230.5" height="140"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-ue-nMQ">
-                        <rect key="frame" x="100.5" y="52" width="30" height="36"/>
+                        <rect key="frame" x="10" y="52" width="210.5" height="36"/>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                         <state key="normal" title="cd">
                             <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -25,10 +25,17 @@
             </view>
             <color key="backgroundColor" red="0.22352941176470587" green="0.2196078431372549" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Zqb-ue-nMQ" secondAttribute="trailing" constant="10" id="5th-Gv-mJT"/>
+                <constraint firstItem="Zqb-ue-nMQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="XCz-pr-7n9"/>
                 <constraint firstItem="Zqb-ue-nMQ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="h85-05-B9F"/>
                 <constraint firstItem="Zqb-ue-nMQ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="vN6-ig-RRR"/>
             </constraints>
             <size key="customSize" width="230.5" height="140"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="h85-05-B9F"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="commandButton" destination="Zqb-ue-nMQ" id="d88-l4-f8I"/>
             </connections>

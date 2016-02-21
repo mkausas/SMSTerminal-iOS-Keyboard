@@ -112,6 +112,9 @@
                                                                 <exclude reference="tDO-Y9-5VL"/>
                                                             </mask>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="resignKeyboardAction:" destination="KeC-S8-bd6" eventType="touchUpInside" id="8il-Aj-Rc1"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1t-yf-cUz">
                                                         <rect key="frame" x="43" y="0.0" width="256" height="40"/>

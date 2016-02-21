@@ -18,6 +18,7 @@ class TerminalViewController: UIInputViewController {
     
     @IBOutlet weak var recentCommandButton: UIButton!
     
+    var fullArgs: [String] = ["-a", "-b", "-c", "-d", "-e", "-f", "-g", "-h", "-i", "-j", "-k", "-l", "-m", "-n", "-o", "-p", "-q", "-r", "-s", "-t", "-u", "-v", "-w", "-x", "-y", "-z"]
     
     var commands: [String: [String]] =
     [
@@ -58,6 +59,7 @@ class TerminalViewController: UIInputViewController {
         
         nextKeyboardButton.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
         
+        recentCommandButton.setTitle("", forState: .Normal)
         
         // grab key list
         for key in commands.keys {
@@ -133,6 +135,17 @@ class TerminalViewController: UIInputViewController {
     @IBAction func sendHistoryCommandAction(sender: AnyObject) {
         self.textDocumentProxy.insertText((recentCommandButton.titleLabel?.text)!)
     }
+    
+    @IBAction func setCommandStateAction(sender: AnyObject) {
+        setState(TYPE_STATE_COMMAND)
+    }
+    
+    
+    @IBAction func setArgStateAction(sender: AnyObject) {
+        argKeys = fullArgs
+        setState(TYPE_STATE_FLAG)
+    }
+    
 
     // helper functions
     func stringLength(string: String) -> Int {
@@ -185,6 +198,8 @@ extension TerminalViewController: UICollectionViewDataSource {
         
         cell.commandButton.setTitle(keys[indexPath.row], forState: .Normal)
         cell.commandButton.addTarget(self, action: "pressedKey:", forControlEvents: .TouchDown)
+        
+//        cell.frame.size = CGSizeMake(cell.frame.width, cell.frame.height)
         
         return cell
     }

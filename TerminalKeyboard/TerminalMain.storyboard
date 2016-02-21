@@ -119,6 +119,9 @@
                                                         <state key="normal" image="code">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="setCommandStateAction:" destination="KeC-S8-bd6" eventType="touchUpInside" id="Suj-md-LdM"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jn-xp-aUd">
                                                         <rect key="frame" x="302" y="0.0" width="256" height="40"/>
@@ -126,6 +129,9 @@
                                                         <state key="normal" image="feather">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="setArgStateAction:" destination="KeC-S8-bd6" eventType="touchUpInside" id="I03-Ii-itI"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nce-fz-hn2">
                                                         <rect key="frame" x="560" y="0.0" width="40" height="40"/>

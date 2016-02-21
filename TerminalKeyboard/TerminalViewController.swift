@@ -14,9 +14,10 @@ class TerminalViewController: UIInputViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var insets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
     
-    @IBOutlet weak var nextKeyboardButton: UIButton!
-    
     @IBOutlet weak var recentCommandButton: UIButton!
+    @IBOutlet weak var switchCommandButton: UIButton!
+    @IBOutlet weak var flagCommandButton: UIButton!
+    
     
     var fullArgs: [String] = ["-a", "-b", "-c", "-d", "-e", "-f", "-g", "-h", "-i", "-j", "-k", "-l", "-m", "-n", "-o", "-p", "-q", "-r", "-s", "-t", "-u", "-v", "-w", "-x", "-y", "-z", "-A", "-B", "-C", "-D", "-E", "-F", "-G", "-H", "-I", "-J", "-K", "-L", "-M", "-N", "-O", "-P", "-Q", "-R", "-S", "-T", "-U", "-V", "-W", "-X", "-Y", "-Z"]
     
@@ -55,6 +56,24 @@ class TerminalViewController: UIInputViewController {
         }
         
         setState(TYPE_STATE_COMMAND)
+        setBottomBarColor()
+    }
+    
+    func setBottomBarColor() {
+        let pressedBottomBarColor = UIColor(red: 50/255, green: 50/255, blue: 63/255, alpha: 1) // 50 50 63
+        let unpressedBottomBarColor = UIColor(red: 67/255, green: 66/255, blue: 78/255, alpha: 1) // 67 66 78 1
+        
+        switch typeState {
+        case TYPE_STATE_COMMAND:
+            switchCommandButton.backgroundColor = pressedBottomBarColor
+            flagCommandButton.backgroundColor = unpressedBottomBarColor
+            break;
+        case TYPE_STATE_FLAG:
+            switchCommandButton.backgroundColor = unpressedBottomBarColor
+            flagCommandButton.backgroundColor = pressedBottomBarColor
+            break;
+        default: break
+        }
     }
     
     var lastAddedCommand = ""
@@ -103,9 +122,11 @@ class TerminalViewController: UIInputViewController {
         // the send button was pressed, save command
         if afterText == nil {
             if let beforeText = beforeText {
-                sentCommands.append(beforeText)
-                recentCommandButton.setTitle(beforeText, forState: .Normal)
-                currentHistoryCommand += 1
+                if sentCommands[currentHistoryCommand] != beforeText {
+                    sentCommands.append(beforeText)
+                    recentCommandButton.setTitle(beforeText, forState: .Normal)
+                    currentHistoryCommand += 1
+                }
                 
                 setState(TYPE_STATE_COMMAND)
             }
@@ -135,12 +156,14 @@ class TerminalViewController: UIInputViewController {
     
     @IBAction func setCommandStateAction(sender: AnyObject) {
         setState(TYPE_STATE_COMMAND)
+        setBottomBarColor()
     }
     
     
     @IBAction func setArgStateAction(sender: AnyObject) {
         argKeys = fullArgs
         setState(TYPE_STATE_FLAG)
+        setBottomBarColor()
     }
     
     

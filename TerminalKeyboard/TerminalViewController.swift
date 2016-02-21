@@ -21,9 +21,52 @@ class TerminalViewController: UIInputViewController {
     
     var fullArgs: [String] = ["-a", "-b", "-c", "-d", "-e", "-f", "-g", "-h", "-i", "-j", "-k", "-l", "-m", "-n", "-o", "-p", "-q", "-r", "-s", "-t", "-u", "-v", "-w", "-x", "-y", "-z", "-A", "-B", "-C", "-D", "-E", "-F", "-G", "-H", "-I", "-J", "-K", "-L", "-M", "-N", "-O", "-P", "-Q", "-R", "-S", "-T", "-U", "-V", "-W", "-X", "-Y", "-Z"]
     
+    var lessCommonCommands: [String: [String]] =
+    [
+  "admin": [], "alias": [], "ar": [], "asa": [], "at": [], "awk": [], "basename": [], "batch": [], "bc": [], "bg": [], "cc": [], "cal": [], "cflow": [], "chgrp": [], "chmod": [], "chown": [], "cksum": [], "cmp": [], "comm": [], "command": [], "compress": [], "crontab": [], "csplit": [], "ctags": [], "cut": [], "cxref": [], "date": [], "dd": [], "delta": [], "df": [], "diff": [], "dirname": [], "du": [], "echo": [], "ed": [], "env": [], "ex": [], "expand": [], "expr": [], "false": [], "fc": [], "fg": [], "file": [], "find": [], "fold": [], "fort77": [], "fuser": [], "gencat": [], "get": [], "getconf": [], "getopts": [], "grep": [], "hash": [], "head": [], "iconv": [], "id": [], "ipcrm": [], "ipcs": [], "jobs": [], "join": [], "kill": [], "lex": [], "link": [], "ln": [], "locale": [], "localedef": [], "logger": [], "logname": [], "lp": [], "m4": [], "mailx": [], "mesg": [], "mkfifo": [], "more": [], "newgrp": [], "nice": [], "nl": [], "nm": [], "nohup": [], "od": [], "paste": [], "patch": [], "pathchk": [], "pax": [], "pr": [], "printf": [], "prs": [], "ps": [], "pwd": [], "qalter": [], "qdel": [], "qhold": [], "qmove": [], "qmsg": [], "qrerun": [], "qrls": [], "qselect": [], "qsig": [], "qstat": [], "qsub": [], "read": [], "renice": [], "rmdel": [], "sact": [], "sccs": [], "sed": [], "sh": [], "sleep": [], "sort": [], "split": [], "strings": [], "strip": [], "stty": [], "tabs": [], "tail": [], "talk": [], "tee": [], "test": [], "time": [], "touch": [], "tput": [], "tr": [], "true": [], "tsort": [], "tty": [], "type": [], "ulimit": [], "umask": [], "unalias": [], "uncompress": [], "unexpand": [], "unget": [], "uniq": [], "unlink": [], "uucp": [], "uudecode": [], "uuencode": [], "uustat": [], "uux": [], "val": [], "vi": [], "wait": [], "wc": [], "what": [], "who": [], "write": [], "xargs": [], "yacc": [], "zcat": []
+    ]
+    
     var commands: [String: [String]] =
     [
- "|": [], "<": [], ">": [], "&": [], "admin": [], "alias": [], "ar": [], "asa": [], "at": [], "awk": [], "basename": [], "batch": [], "bc": [], "bg": [], "cc": [], "cal": [], "cat": [], "cd": [], "cflow": [], "chgrp": [], "chmod": [], "chown": [], "cksum": [], "cmp": [], "comm": [], "command": [], "compress": [], "cp": [], "crontab": [], "csplit": [], "ctags": [], "cut": [], "cxref": [], "date": [], "dd": [], "delta": [], "df": [], "diff": [], "dirname": [], "du": [], "echo": [], "ed": [], "env": [], "ex": [], "expand": [], "expr": [], "false": [], "fc": [], "fg": [], "file": [], "find": [], "fold": [], "fort77": [], "fuser": [], "gencat": [], "get": [], "getconf": [], "getopts": [], "grep": [], "git": ["config", "init", "clone", "add", "status", "diff", "commit", "reset", "rm", "mv", "branch",  "checkout" ,"merge" ,"mergetool" ,"log" ,"stash" ,"tag", "fetch", "pull", "push", "remote", "submodule", "show", "log", "diff", "shortlog", "describe", "apply", "cherry-pick", "diff", "rebase", "revert", "bisect", "blame", "grep", "am", "apply", "format-patch", "send-email", "request-pull", "svn", "fast-import", "clean", "gc", "fsck", "reflog", "filter-branch", "instaweb", "archive", "bundle", "daemon", "update-server-info", "cat-file", "commit-tree", "count-objects", "diff-index", "for-each-ref", "hash-object", "ls-files", "merge-base", "read-tree", "rev-list", "rev-parse", "show-ref", "symbolic-ref", "update-index", "update-ref", "verify-pack", "write-tree"], "hash": [], "head": [], "iconv": [], "id": [], "ipcrm": [], "ipcs": [], "jobs": [], "join": [], "kill": [], "lex": [], "link": [], "ln": [], "locale": [], "localedef": [], "logger": [], "logname": [], "lp": [], "ls": [], "m4": [], "mailx": [], "make": [], "man": [], "mesg": [], "mkdir": [], "mkfifo": [], "more": [], "mv": [], "newgrp": [], "nice": [], "nl": [], "nm": [], "nohup": [], "od": [], "paste": [], "patch": [], "pathchk": [], "pax": [], "pr": [], "printf": [], "prs": [], "ps": [], "pwd": [], "qalter": [], "qdel": [], "qhold": [], "qmove": [], "qmsg": [], "qrerun": [], "qrls": [], "qselect": [], "qsig": [], "qstat": [], "qsub": [], "read": [], "renice": [], "rm": [], "rmdel": [], "rmdir": [], "sact": [], "sccs": [], "sed": [], "sh": [], "sleep": [], "sort": [], "split": [], "strings": [], "strip": [], "stty": [], "tabs": [], "tail": [], "talk": [], "tee": [], "test": [], "time": [], "touch": [], "tput": [], "tr": [], "true": [], "tsort": [], "tty": [], "type": [], "ulimit": [], "umask": [], "unalias": [], "uname": [], "uncompress": [], "unexpand": [], "unget": [], "uniq": [], "unlink": [], "uucp": [], "uudecode": [], "uuencode": [], "uustat": [], "uux": [], "val": [], "vi": [], "wait": [], "wc": [], "what": [], "who": [], "write": [], "xargs": [], "yacc": [], "zcat": []
+        "admin": [], "alias": [], "ar": [], "asa": [], "at": [], "awk": [], "basename": [], "batch": [], "bc": [], "bg": [], "cc": [], "cal": [], "cflow": [], "chgrp": [], "chmod": [], "chown": [], "cksum": [], "cmp": [], "comm": [], "command": [], "compress": [], "crontab": [], "csplit": [], "ctags": [], "cut": [], "cxref": [], "date": [], "dd": [], "delta": [], "df": [], "diff": [], "dirname": [], "du": [], "echo": [], "ed": [], "env": [], "ex": [], "expand": [], "expr": [], "false": [], "fc": [], "fg": [], "file": [], "find": [], "fold": [], "fort77": [], "fuser": [], "gencat": [], "get": [], "getconf": [], "getopts": [], "grep": [], "hash": [], "head": [], "iconv": [], "id": [], "ipcrm": [], "ipcs": [], "jobs": [], "join": [], "kill": [], "lex": [], "link": [], "ln": [], "locale": [], "localedef": [], "logger": [], "logname": [], "lp": [], "m4": [], "mailx": [], "mesg": [], "mkfifo": [], "more": [], "newgrp": [], "nice": [], "nl": [], "nm": [], "nohup": [], "od": [], "paste": [], "patch": [], "pathchk": [], "pax": [], "pr": [], "printf": [], "prs": [], "ps": [], "qalter": [], "qdel": [], "qhold": [], "qmove": [], "qmsg": [], "qrerun": [], "qrls": [], "qselect": [], "qsig": [], "qstat": [], "qsub": [], "read": [], "renice": [], "rmdel": [], "sact": [], "sccs": [], "sed": [], "sh": [], "sleep": [], "sort": [], "split": [], "strings": [], "strip": [], "stty": [], "tabs": [], "tail": [], "talk": [], "tee": [], "test": [], "time": [], "touch": [], "tput": [], "tr": [], "true": [], "tsort": [], "tty": [], "type": [], "ulimit": [], "umask": [], "unalias": [], "uname": [], "uncompress": [], "unexpand": [], "unget": [], "uniq": [], "unlink": [], "uucp": [], "uudecode": [], "uuencode": [], "uustat": [], "uux": [], "val": [], "vi": [], "wait": [], "wc": [], "what": [], "who": [], "write": [], "xargs": [], "yacc": [], "zcat": [],
+
+        "ls": [],
+        "pwd": [],
+        "cd": [".."],
+        "git": ["config", "init", "clone", "add", "status", "diff", "commit", "reset", "rm", "mv", "branch",  "checkout" ,"merge" ,"mergetool" ,"log" ,"stash" ,"tag", "fetch", "pull", "push", "remote", "submodule", "show", "log", "diff", "shortlog", "describe", "apply", "cherry-pick", "diff", "rebase", "revert", "bisect", "blame", "grep", "am", "apply", "format-patch", "send-email", "request-pull", "svn", "fast-import", "clean", "gc", "fsck", "reflog", "filter-branch", "instaweb", "archive", "bundle", "daemon", "update-server-info", "cat-file", "commit-tree", "count-objects", "diff-index", "for-each-ref", "hash-object", "ls-files", "merge-base", "read-tree", "rev-list", "rev-parse", "show-ref", "symbolic-ref", "update-index", "update-ref", "verify-pack", "write-tree"],
+        "mkdir": [],
+        "rmdir": [],
+        "cp": [],
+        "mv": [],
+        "rm": [],
+        "|": [],
+        "<": [],
+        ">": [],
+        "&": [],
+        "man": [],
+        "cat": [],
+        "make": []
+    ]
+    
+    var commonCommands: [String: [String]] =
+    [
+        "ls": [],
+        "pwd": [],
+        "cd": [".."],
+        "git": ["config", "init", "clone", "add", "status", "diff", "commit", "reset", "rm", "mv", "branch",  "checkout" ,"merge" ,"mergetool" ,"log" ,"stash" ,"tag", "fetch", "pull", "push", "remote", "submodule", "show", "log", "diff", "shortlog", "describe", "apply", "cherry-pick", "diff", "rebase", "revert", "bisect", "blame", "grep", "am", "apply", "format-patch", "send-email", "request-pull", "svn", "fast-import", "clean", "gc", "fsck", "reflog", "filter-branch", "instaweb", "archive", "bundle", "daemon", "update-server-info", "cat-file", "commit-tree", "count-objects", "diff-index", "for-each-ref", "hash-object", "ls-files", "merge-base", "read-tree", "rev-list", "rev-parse", "show-ref", "symbolic-ref", "update-index", "update-ref", "verify-pack", "write-tree"],
+        "mkdir": [],
+        "rmdir": [],
+        "uname": [],
+        "cp": [],
+        "mv": [],
+        "rm": [],
+        "|": [],
+        "<": [],
+        ">": [],
+        "&": [],
+        "man": [],
+        "cat": [],
+        "make": []
     ]
     
     
@@ -49,11 +92,8 @@ class TerminalViewController: UIInputViewController {
             recentCommandButton.setTitle(sentCommands[currentHistoryCommand], forState: .Normal)
         }
         
-        // grab key list
-        for key in commands.keys {
-            commandKeys.append(key)
-            print("Key = \(key)")
-        }
+        commandKeys.appendContentsOf(commonCommands.keys)
+        commandKeys.appendContentsOf(lessCommonCommands.keys)
         
         setState(TYPE_STATE_COMMAND)
         setBottomBarColor()
